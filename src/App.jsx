@@ -1,0 +1,426 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+import farmImg from "./assets/images/farm.png";
+import flowerImg from "./assets/images/flower.png";
+import designImg from "./assets/images/design.png";
+import teachingImg from "./assets/images/teaching.png";
+import heroBg from "./assets/images/hero-bg.png";
+
+import {
+  Leaf,
+  Sprout,
+  Flower2,
+  BookOpen,
+  GraduationCap,
+  Home,
+  PenTool,
+  Rocket,
+  ArrowRight,
+  Sparkles,
+  Users,
+  MonitorSmartphone,
+  ShieldCheck,
+  Lightbulb,
+  TreePine,
+  Newspaper,
+} from "lucide-react";
+
+const platformGroups = [
+  {
+    title: "技能檢定學習平台",
+    icon: GraduationCap,
+    theme: "green",
+    description:
+      "針對農業群丙級術科檢定設計，提供植物辨識、題庫練習與考前複習，協助學生建立穩定的識別能力。",
+    image:
+      farmImg,
+    items: [
+     {
+       name: "農藝丙級術科識別",
+       text: "農藝作物與種子辨識練習",
+       url: "https://agri-plant-quiz.web.app/agri/",
+     },
+     {
+       name: "園藝丙級術科識別",
+       text: "園藝植物、花材與葉材識別",
+       url: "https://agri-plant-quiz.web.app/horti/",
+     },
+],
+    button: "進入學習平台",
+    url: "https://agri-plant-quiz.web.app/",
+    color: "from-emerald-700 to-lime-600",
+    border: "border-emerald-200",
+  },
+  {
+    title: "AI 農業設計工具",
+    icon: Sprout,
+    theme: "teal",
+    description:
+      "運用 AI 協助空間綠化設計、景觀視覺規劃與情境提案，讓農業美學、園藝應用與環境教育更具想像力。",
+    image:
+       designImg,
+    items: [
+      { name: "AI 綠美化空間設計師", text: "打造校園、居家與公共空間綠化提案", url: "https://flora-coach-ai.web.app/index.html"},
+      { name: "AI 房仲綠美化設計師", text: "提升物件視覺價值與植栽配置想像", url: "https://flora-coach-ai.web.app/real-estate.html"},
+      { name: "AI 室內綠美化設計師", text: "模擬不同植物搭配與景觀效果" ,url: "https://flora-coach-ai.web.app/designer.html"},
+    ],
+    button: "開啟設計工具",
+    url: "https://flora-coach-ai.web.app/index.html",
+    color: "from-teal-700 to-cyan-600",
+    border: "border-teal-200",
+  },
+  {
+    title: "AI 花藝教育平台",
+    icon: Flower2,
+    theme: "rose",
+    description:
+      "結合 AI 評審與教學回饋，協助學生理解花藝作品的構圖、比例、色彩與技術表現，強化競賽訓練。",
+    image:
+      flowerImg,
+    items: [
+      { name: "AI 花藝評審教練", text: "模擬評審觀點，分析作品優缺點", url: "https://r91628120.github.io/floral-ai-judge/index.html" },
+      
+    ],
+    button: "進入花藝平台",
+    url: "https://r91628120.github.io/floral-ai-judge/index.html",
+    color: "from-rose-600 to-pink-500",
+    border: "border-rose-200",
+  },
+  {
+    title: "AI 教學輔助",
+    icon: BookOpen,
+    theme: "blue",
+    description:
+      "提供學生在學習與寫作過程中的智能輔助工具，協助教師提升教學效率，也讓學生更容易完成作品。",
+    image:
+      teachingImg,
+    items: [
+      { name: "AI 小論文格式檢核系統", text: "快速檢查格式、結構與引用一致性", url: "https://r91628120.github.io/thesis-checker/"  },
+    ],
+    button: "使用輔助工具",
+    url: "https://r91628120.github.io/thesis-checker/",
+    color: "from-blue-700 to-sky-500",
+    border: "border-blue-200",
+  },
+];
+
+const newProjects = [
+  {
+    title: "AI 農業教育創新計畫",
+    tag: "教學平台系統",
+    icon: Rocket,
+
+    description:
+       "結合 AI農業創作、農民訪談、品牌故事、社群行銷與智慧教學應用，打造新世代農業教育創作平台。",
+
+    points: [
+      "AI農業創作教學",
+      "農民訪談 Prompt 系統",
+      "品牌故事與社群生成",
+      "農業教育 AI 工具"
+    ],
+
+      href: "https://r91628120.github.io/ai-agri-platform/",
+
+      color: "from-violet-700 to-indigo-500",
+  },
+  {
+    title: "AI 青農品牌故事平台",
+    tag: "準備新開發",
+    icon: Newspaper,
+    description:
+      "記錄台灣青年農民的故事與品牌精神，透過 AI 敘事與視覺設計，讓每一份努力被看見、被感動、被傳承。",
+    points: ["青農故事專訪", "品牌理念分享", "從農經驗與心路歷程", "共創農業的未來"],
+    href: "https://r91628120.github.io/ai-agri-platform/stories/",
+    color: "from-amber-600 to-orange-500",
+  },
+
+  {
+    title: "AI 植物診療師教學平台",
+    tag: "準備新開發",
+    icon: TreePine,
+    description:
+       "結合 AI、植物診療、智慧農業與病蟲害分析的新世代農業探究系統，帶領學生學習作物健康觀察、環境數據判讀與 AI 輔助診斷。",
+    points: [
+     "植物病害判斷",
+     "作物健康分析",
+     "感測器與氣象數據",
+     "AI 輔助診斷紀錄"
+    ],
+    href: "#",
+    color: "from-emerald-700 to-lime-500",
+},
+
+
+];
+
+const reasons = [
+  { icon: Sparkles, title: "AI 智能技術", text: "結合人工智慧，提供更精準的學習分析與創作輔助。" },
+  { icon: Leaf, title: "專業農業內容", text: "以農業群教學需求為核心，內容貼近課程與檢定。" },
+  { icon: MonitorSmartphone, title: "跨平台使用", text: "支援電腦、平板與手機，讓學習不受場域限制。" },
+  { icon: Users, title: "共創農業未來", text: "培育新世代農業人才，讓農業教育更有溫度。" },
+];
+
+function PlatformCard({ group, index }) {
+  const Icon = group.icon;
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.55, delay: index * 0.08 }}
+      className={`group overflow-hidden rounded-3xl border ${group.border} bg-white/85 shadow-xl shadow-slate-200/60 backdrop-blur transition hover:-translate-y-1 hover:shadow-2xl`}
+    >
+      <div className="relative h-40 overflow-hidden">
+        <img src={group.image} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+        <div className="absolute bottom-4 left-5 right-5 flex items-center gap-3 text-white">
+          <div className="rounded-2xl bg-white/20 p-2 backdrop-blur">
+            <Icon className="h-6 w-6" />
+          </div>
+          <h3 className="text-xl font-black tracking-tight">{group.title}</h3>
+        </div>
+      </div>
+
+      <div className="p-6">
+        <p className="min-h-[72px] text-sm leading-7 text-slate-700">{group.description}</p>
+        <div className="mt-5 space-y-3">
+          {group.items.map((item) => (
+            <a
+              key={item.name}
+              href={item.url}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white/80 p-4 transition hover:border-emerald-300 hover:bg-emerald-50"
+            >
+              <div>
+                <div className="font-bold text-slate-900">{item.name}</div>
+                <div className="mt-1 text-xs text-slate-500">{item.text}</div>
+              </div>
+              <ArrowRight className="h-5 w-5 text-emerald-600" />
+            </a>
+          ))}
+        </div>
+        <a
+           href={group.url || "#"}
+           target="_blank"
+           rel="noreferrer"
+           className={`mt-6 flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r ${group.color} px-5 py-3 font-bold text-white shadow-lg shadow-slate-300/70 transition hover:scale-[1.02]`}
+        >
+           {group.button}
+          <ArrowRight className="h-5 w-5" />
+        </a>
+      </div>
+    </motion.article>
+  );
+}
+
+function ProjectCard({ project }) {
+  const Icon = project.icon;
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.55 }}
+      className="relative overflow-hidden rounded-3xl border border-white/70 bg-white/80 p-7 shadow-xl shadow-slate-200/70 backdrop-blur"
+    >
+      <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${project.color}`} />
+      <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-emerald-100/60 blur-2xl" />
+      <div className="relative flex items-start justify-between gap-5">
+        <div>
+          <span className="inline-flex rounded-full bg-slate-900 px-3 py-1 text-xs font-bold text-white">{project.tag}</span>
+          <h3 className="mt-4 text-2xl font-black text-slate-900">{project.title}</h3>
+          <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-700">{project.description}</p>
+        </div>
+        <div className={`rounded-3xl bg-gradient-to-br ${project.color} p-4 text-white shadow-lg`}>
+          <Icon className="h-9 w-9" />
+        </div>
+      </div>
+      <div className="relative mt-6 grid gap-3 sm:grid-cols-2">
+        {project.points.map((point) => (
+          <div key={point} className="flex items-center gap-2 rounded-2xl bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">
+            <ShieldCheck className="h-4 w-4 text-emerald-600" />
+            {point}
+          </div>
+        ))}
+      </div>
+      <a
+        href={project.href}
+        target="_blank"
+        rel="noreferrer"
+        className={`relative mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r ${project.color} px-5 py-3 font-bold text-white shadow-lg transition hover:scale-[1.01]`}
+      >
+        前往了解
+        <ArrowRight className="h-5 w-5" />
+      </a>
+    </motion.article>
+  );
+}
+
+export default function AIAgricultureEducationLandingPage() {
+  return (
+    <main className="min-h-screen bg-[#f7fbf4] text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-white/50 bg-white/85 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-5">
+          <a href="#" className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-lime-500 text-white shadow-lg shadow-emerald-200">
+              <Leaf className="h-7 w-7" />
+            </div>
+            <div className="min-w-0">
+              <div className="text-lg font-black leading-tight tracking-tight text-emerald-950 sm:text-xl">
+                    AI 農業教育平台
+              </div>
+              <div className="text-xs font-medium leading-snug text-slate-500">
+                    AI Agriculture Education Platform
+              </div>
+            </div>
+          </a>
+          <nav className="hidden items-center gap-8 text-sm font-bold text-slate-700 lg:flex">
+            <a className="text-emerald-700" href="#home">首頁</a>
+            <a href="#platforms">平台分類</a>
+            <a href="#projects">創新計畫</a>
+            <a href="#why">平台特色</a>
+            <a href="#contact">聯絡我們</a>
+          </nav>
+          <a
+            href="#platforms"
+            className="ml-3 inline-flex shrink-0 items-center justify-center rounded-2xl bg-emerald-700 px-4 py-3 text-sm font-black leading-tight text-white shadow-lg shadow-emerald-200 transition hover:bg-emerald-800 sm:px-5 sm:whitespace-nowrap"
+          >
+             探索平台
+          </a>
+        </div>
+      </header>
+
+      <section id="home" className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+              src={heroBg}
+              alt="AI 農業教育平台背景"
+              className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/75 to-emerald-950/10" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_28%,rgba(255,255,255,.65),transparent_26%),radial-gradient(circle_at_20%_15%,rgba(187,247,208,.45),transparent_22%)]" />
+        </div>
+
+        <div className="relative mx-auto grid min-h-[620px] max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-[1.05fr_.95fr]">
+          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/70 px-4 py-2 text-sm font-bold text-emerald-800 shadow-sm backdrop-blur">
+              <Sparkles className="h-4 w-4" />
+              AI × 農業 × 教育創新入口
+            </span>
+            <h1 className="mt-7 text-5xl font-black leading-tight tracking-tight text-emerald-950 md:text-7xl">
+              AI × 農業教育平台
+              <span className="mt-2 block text-4xl text-emerald-800 md:text-5xl">智慧學習・創造永續未來</span>
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-9 text-slate-700">
+              整合 AI 技術與農業專業知識，打造技能檢定、園藝設計、花藝教學、學習輔助與青農品牌故事的多元教育平台。
+            </p>
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <a href="#platforms" className="inline-flex items-center justify-center gap-3 rounded-full bg-emerald-700 px-8 py-4 text-lg font-black text-white shadow-xl shadow-emerald-300 transition hover:-translate-y-0.5 hover:bg-emerald-800">
+                探索所有平台
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <a href="#projects" className="inline-flex items-center justify-center gap-3 rounded-full border border-emerald-200 bg-white/75 px-8 py-4 text-lg font-black text-emerald-800 shadow-lg backdrop-blur transition hover:-translate-y-0.5 hover:bg-white">
+                查看創新計畫
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }} className="relative hidden lg:block">
+            <div className="absolute -inset-8 rounded-[3rem] bg-white/25 blur-2xl" />
+            <div className="relative rounded-[3rem] border border-white/50 bg-white/35 p-6 shadow-2xl backdrop-blur-md">
+              <div className="grid grid-cols-2 gap-4">
+                {[Leaf, Sprout, Flower2, Lightbulb, Home, PenTool].map((Icon, i) => (
+                  <div key={i} className="flex h-32 items-center justify-center rounded-3xl border border-white/60 bg-white/55 shadow-lg backdrop-blur">
+                    <Icon className="h-12 w-12 text-emerald-700" />
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 rounded-3xl bg-emerald-950/90 p-5 text-white">
+                <div className="text-sm text-emerald-100">平台定位</div>
+                <div className="mt-1 text-2xl font-black">農業群 AI 教育生態系</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 rounded-t-[55%] bg-[#f7fbf4]" />
+      </section>
+
+      <section id="platforms" className="relative mx-auto max-w-7xl px-5 py-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="flex items-center justify-center gap-3 text-emerald-700">
+            <Leaf className="h-6 w-6" />
+            <h2 className="text-3xl font-black md:text-4xl">探索多元 AI 農業教育平台</h2>
+            <Leaf className="h-6 w-6" />
+          </div>
+          <p className="mt-4 text-slate-600">多元工具 × 智慧科技 × 專業知識，陪伴學生、教師與青農走向更有價值的學習與創作。</p>
+        </div>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-4">
+          {platformGroups.map((group, index) => (
+            <PlatformCard key={group.title} group={group} index={index} />
+          ))}
+        </div>
+      </section>
+
+      <section id="projects" className="mx-auto max-w-7xl px-5 pb-16">
+        <div className="grid gap-6 lg:grid-cols-2">
+          {newProjects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
+      </section>
+
+      <section id="why" className="mx-auto max-w-7xl px-5 pb-16">
+        <div className="rounded-[2rem] border border-emerald-100 bg-white/75 p-8 shadow-xl shadow-slate-200/60 backdrop-blur">
+          <h2 className="text-center text-3xl font-black text-emerald-950">為什麼建立 AI 農業教育平台？</h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {reasons.map((reason) => {
+              const Icon = reason.icon;
+              return (
+                <div key={reason.title} className="text-center">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-emerald-50 text-emerald-700">
+                    <Icon className="h-8 w-8" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-black">{reason.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{reason.text}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="bg-gradient-to-r from-emerald-950 via-emerald-900 to-teal-900 px-5 py-10 text-white">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 lg:flex-row">
+          <div>
+            <h2 className="text-2xl font-black">開啟您的智慧學習之旅</h2>
+            <p className="mt-2 text-emerald-100">立即探索多元 AI 工具，開啟農業教育的嶄新體驗。</p>
+          </div>
+          <a href="#platforms" className="inline-flex items-center gap-3 rounded-full bg-lime-500 px-7 py-4 font-black text-emerald-950 shadow-lg transition hover:bg-lime-400">
+            立即開始探索
+            <ArrowRight className="h-5 w-5" />
+          </a>
+        </div>
+      </section>
+
+      <footer className="bg-emerald-950 px-5 py-8 text-emerald-100">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 text-sm md:flex-row">
+          <div>
+            <div className="font-black text-white">AI 農業教育平台</div>
+            <div className="mt-1 text-emerald-200">AI Agriculture Education Platform</div>
+          </div>
+          <div className="flex flex-wrap gap-5">
+            <a href="#platforms">平台介紹</a>
+            <a href="#projects">創新計畫</a>
+            <a href="#why">平台特色</a>
+            <a href="#contact">聯絡我們</a>
+          </div>
+          <div>© 2026 AI 農業教育平台 All Rights Reserved.</div>
+        </div>
+      </footer>
+    </main>
+  );
+}
