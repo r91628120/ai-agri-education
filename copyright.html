@@ -15,6 +15,56 @@
       margin:0;
       padding:40px 20px;
     }
+     
+    .navbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:white;
+      border-bottom:1px solid #d7eadc;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 24px;
+      box-shadow:0 2px 10px rgba(0,0,0,.04);
+   }
+
+   .nav-logo{
+     font-weight:800;
+     color:#2f7d4b;
+     font-size:1.05rem;
+     text-decoration:none;
+   }
+
+   .nav-links{
+     display:flex;
+     gap:18px;
+   }
+
+   .nav-links a{
+     color:#294b35;
+     font-weight:700;
+     text-decoration:none;
+   }
+
+   .nav-links a:hover{
+     color:#2f7d4b;
+   }
+
+   @media(max-width:640px){
+
+   .navbar{
+    flex-direction:column;
+    gap:10px;
+    padding:12px 10px;
+   }
+
+   .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+   }
+
+   }
 
     .container{
       max-width:900px;
@@ -57,6 +107,21 @@
 </head>
 
 <body>
+
+ <nav class="navbar">
+
+  <a class="nav-logo"
+     href="https://r91628120.github.io/ai-agri-education/#home">
+     🌱 AI農業教育平台
+  </a>
+
+  <div class="nav-links">
+    <a href="./index.html">首頁</a>
+    <a href="./teaching/">教學系統</a>
+    <a href="./stories/">品牌故事</a>
+  </div>
+
+</nav> 
 
 <div class="container">
 
